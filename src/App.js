@@ -4,8 +4,8 @@ import { Routes, Route } from 'react-router-dom';
 
 import Header from './components/Header';
 import Footer from './components/Footer';
-import Day from './pages/Day';
-import DayList from './pages/DayList';
+import DayPage from './pages/DayPage';
+import DayListPage from './pages/DayListsPage';
 
 const Container = styled.div`
   width: 100vw;
@@ -24,14 +24,13 @@ const TodoApp = styled.div`
 `;
 
 function App() {
-  const todayEpoch = new Date(2023, 1, 14).getTime();
   return (
     <Container>
       <TodoApp>
         <Header />
         <Routes>
-          <Route path='/day' element={<Day todayEpoch={todayEpoch} />} />
-          <Route path='/daylist' element={<DayList />} />
+          <Route path='/day' element={<DayPage />} />
+          <Route path='/daylist' element={<DayListPage />} />
         </Routes>
         <Footer />
       </TodoApp>
