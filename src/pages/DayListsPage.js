@@ -24,7 +24,6 @@ const DayListsPage = () => {
     const state = useSelector(state => state);
     const chosenDate = state.chosenDate;
     const days = state.todolistData.filter(dayObj => Math.abs(dayObj.date.getDate() - chosenDate.getDate()) <= 3);
-    // console.log("DayListsPage.js days:", days);
     return (
         <Container>
             <DayLists>

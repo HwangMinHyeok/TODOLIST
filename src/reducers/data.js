@@ -104,6 +104,20 @@ const data = {
                 { checked: false, time: "01:00", contents: "취침" },
             ]
         },
+        {
+            date: new Date(2023, 1, 1),
+            todolist: [
+                { checked: false, time: "01:00", contents: "취침" },
+                { checked: false, time: "19:30", contents: "DK vs GEN" },
+            ]
+        },
+        {
+            date: new Date(2023, 1, 2),
+            todolist: [
+                { checked: false, time: "01:00", contents: "취침" },
+                { checked: false, time: "19:30", contents: "헬스" },
+            ]
+        },
     ],
 };
 

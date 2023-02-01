@@ -1,10 +1,10 @@
-import React from 'react';
 import styled from 'styled-components';
 import PlusIcon from '../icons/PlusIcon';
 
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { navToList, navToDay, addTodo } from '../actions/actions';
+import { navToList, navToDay } from '../actions/actions';
+
 const Container = styled.div`
     width: 375px;
     height: 67px;;
@@ -22,41 +22,25 @@ const Button = styled.button`
 `;
 
 
-const Footer = () => {
+const Footer = ({toggleModalWindow}) => {
     const dispatch = useDispatch();
     const state = useSelector(state => state);
 
     const handleListBtn = () => {
+        toggleModalWindow(false);
         dispatch(navToList("DayList"));
     }
-
     const handleTodayBtn = () => {
+        toggleModalWindow(false);
         dispatch(navToDay("Day", new Date(Date.now())));
     }
 
-    // for sort test
-    const getRandomTime = () => {
-        const randH = Math.floor(Math.random() * 24);
-        const randM = Math.floor(Math.random() * 60);
-        return `${String(randH).padStart(2, 0)}:${String(randM).padStart(2, 0)}`;
-    }
-    // state.currentPage가 Day일 때,
-    // chosenDate = state.chosenDate
-    const handleAddBtn = () => {
-        const currentPage = state.currentPage;
-
-        if (currentPage === "Day") {
-            const chosenDate = state.chosenDate;
-            const time = getRandomTime();
-            const contents = "temp contents";
-            dispatch(addTodo(chosenDate, time, contents));
-        }
-        // DayList
-        else {
-            // dispatch(addList(chosenDate));
-        }
-    }
-
+    // // tmp func -> for sort test
+    // const getRandomTime = () => {
+    //     const randH = Math.floor(Math.random() * 24);
+    //     const randM = Math.floor(Math.random() * 60);
+    //     return `${String(randH).padStart(2, 0)}:${String(randM).padStart(2, 0)}`;
+    // }
     return (
         <Container>
             <Link to="/daylist">
@@ -65,7 +49,8 @@ const Footer = () => {
             <Link to="/day">
                 <Button onClick={handleTodayBtn}>오늘</Button>
             </Link>
-            <Button onClick={handleAddBtn}><PlusIcon /></Button>
+            {/* {isModalOpen && <ModalWindow setIsModalOpen={setIsModalOpen} />} */}
+            <Button onClick={toggleModalWindow}><PlusIcon /></Button>
         </Container>
     );
 };

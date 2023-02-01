@@ -58,10 +58,16 @@ const todolistReducer = (state = data, action) => {
                 todolistData: [...updatedTodolistData],
             };
         case ADD_LIST:
-            // modal
-            // 날짜 선택
-            // 해당 day page로 이동
-            break;
+            return {
+                ...state,
+                todolistData: [
+                    ...state.todolistData,
+                    {
+                        date: action.payload,
+                        todolist: [],
+                    }
+                ],
+            };
         default:
             return state;
     }

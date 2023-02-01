@@ -49,10 +49,6 @@ const DayPage = () => {
     const todolistData = state.todolistData;
     const todolist = todolistData.find(dayObj => isSameDay(dayObj.date, state.chosenDate)).todolist;
 
-    // const isIn3DaysRange = () => {
-    //     return Math.abs(state.chosenDate.getDate() - new Date().getDate()) <= 3;
-    // }
-
     const dayDif = state.chosenDate.getDate() - new Date().getDate();
 
     const getDateIRL = (chosenDate) => {
@@ -66,8 +62,6 @@ const DayPage = () => {
 
     return (
         <Container>
-            {/* <Title>{getDateIRL(state.chosenDate)}</Title> */}
-
             {Math.abs(dayDif) <= 3
                 ? <Title>
                     <TitleChild>{dayMap[dayDif + 3]}</TitleChild>

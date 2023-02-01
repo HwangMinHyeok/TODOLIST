@@ -28,8 +28,6 @@ const Container = styled.li`
 const Title = styled.div`
     font-size: 30px;
     font-weight: 700;
-
-    
 `;
 
 //                       -3      -2     -1     0      1      2      3
@@ -39,7 +37,6 @@ const DayList = ({ day }) => {
     const dispatch = useDispatch();
     const state = useSelector(state => state);
     const dayDif = day.date.getDate() - state.chosenDate.getDate();
-    console.log("DayList.js ", dayMap[dayDif + 3]);
     const handleClickDayList = () => {
         dispatch(navToDay("Day", day.date));
     }

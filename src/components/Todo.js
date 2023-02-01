@@ -7,7 +7,7 @@ import DeleteIcon from '../icons/DeleteIcon';
 import { checkBtn, deleteBtn } from '../actions/actions';
 import { isSameDay } from '../pages/DayPage';
 
-const Container = styled.li`
+const TodoContainer = styled.li`
     width: 100%;
     height: 60px;
     margin: 5px 0;
@@ -95,12 +95,12 @@ const Todo = ({ todoIdx }) => {
         // : Add todo
     }
     return (
-        <Container ref={todoRef} checked={checked} onClick={hadnleClickTodo} >
+        <TodoContainer ref={todoRef} checked={checked} onClick={hadnleClickTodo} >
             <CheckBox>{checked ? <CheckedCheckBoxIcon /> : <DefaultCheckBoxIcon />}</CheckBox>
             <Time>{convertTimeto12HourFormat(time)}</Time>
             <Contents>{contents}</Contents>
             <DeleteBtn onClick={handleDeleteBtn}><DeleteIcon /></DeleteBtn>
-        </Container>
+        </TodoContainer>
     );
 };
 
